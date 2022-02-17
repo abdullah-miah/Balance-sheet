@@ -18,23 +18,25 @@ document.getElementById('calculation').addEventListener('click', function () {
     const inputIncome = document.getElementById('income-value');
     const incomeBDT = inputIncome.value;
     const inputValue = parseFloat(incomeBDT);
-    inputIncome.value = '';
     const getBalance = inputValue - totalCost;
     const totalBalance = document.getElementById('total-balance');
     totalBalance.innerText = getBalance;
-    // input empty
-    // inputFood.value = '';
-    // inputRent.value = '';
-    // inputClothes.value = '';
-    // inputIncome.value = '';
-
-
 });
 document.getElementById('save-button').addEventListener('click', function () {
+    const inputIncome = document.getElementById('income-value');
+    const incomeBDT = inputIncome.value;
+    const inputValue = parseFloat(incomeBDT);
     const saveInput = document.getElementById('save-input');
     const saveAmount = saveInput.value;
-    console.log(saveAmount);
     saveInput.value = '';
-
+    const savecal = inputValue / 100;
+    const saveCalculation = savecal * saveAmount;
+    const totalSave = document.getElementById('save-total');
+    totalSave.innerText = saveCalculation;
+    const getTotalBalance = document.getElementById('total-balance');
+    const totalBalance = getTotalBalance.innerText;
+    const getBalance = parseFloat(totalBalance);
+    const ReaminingBalance = document.getElementById('Reamining-bal');
+    ReaminingBalance.innerText = getBalance - saveCalculation;
 });
 
