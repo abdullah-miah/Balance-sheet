@@ -1,9 +1,13 @@
 // javaScript Start
+// Cost calculation
 document.getElementById('calculation').addEventListener('click', function () {
-    const inputFood = document.getElementById('food-value');
-    const inputFoodBDT = inputFood.value;
-    const foodValue = parseFloat(inputFoodBDT);
-    inputFood.value = '';
+    function foodCost() {
+        const inputFood = document.getElementById('food-value');
+        const inputFoodBDT = inputFood.value;
+        const foodValue = parseFloat(inputFoodBDT);
+        inputFood.value = '';
+        return foodValue;
+    }
     const inputRent = document.getElementById('rent-value');
     const inputRentBDT = inputRent.value;
     const rentValue = parseFloat(inputRentBDT);
@@ -12,16 +16,21 @@ document.getElementById('calculation').addEventListener('click', function () {
     const inputClothesBDT = inputClothes.value;
     const clothesValue = parseFloat(inputClothesBDT);
     inputClothes.value = '';
-    const totalCost = foodValue + rentValue + clothesValue;
+    const totalCost = foodCost() + rentValue + clothesValue;
     const totalExpense = document.getElementById('total-expenses');
     totalExpense.innerText = totalCost;
-    const inputIncome = document.getElementById('income-value');
-    const incomeBDT = inputIncome.value;
-    const inputValue = parseFloat(incomeBDT);
-    const getBalance = inputValue - totalCost;
+    // use function
+    function getBal() {
+        const inputIncome = document.getElementById('income-value');
+        const incomeBDT = inputIncome.value;
+        const inputValue = parseFloat(incomeBDT);
+        const getBalance = inputValue - totalCost;
+        return getBalance;
+    }
     const totalBalance = document.getElementById('total-balance');
-    totalBalance.innerText = getBalance;
+    totalBalance.innerText = getBal();
 });
+// save and remaining balance
 document.getElementById('save-button').addEventListener('click', function () {
     const inputIncome = document.getElementById('income-value');
     const incomeBDT = inputIncome.value;
